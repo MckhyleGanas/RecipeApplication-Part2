@@ -5,7 +5,7 @@ namespace RecipeApp
 {
     class Recipe
     {
-        public string Name { get; set; }
+        public string Name { get; set; } 
         public List<Ingredient> Ingredients { get; set; }       //Lists used in part 2
         public List<string> Steps { get; set; }
 
