@@ -129,7 +129,7 @@ namespace RecipeApp
         {
             Console.Write("Enter recipe name: "); //Enter the name of your recipe
             string name = Console.ReadLine();
-
+             
             Recipe recipe = new Recipe(name);
 
             Console.Write("Enter the number of ingredients: "); //Enter the number of ingredients your recipe requires
