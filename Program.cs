@@ -194,7 +194,7 @@ namespace RecipeApp
 
                 if (totalCalories > 300)
                 {
-                    Console.WriteLine("Warning: Total calories exceeds 300!");
+                    Console.WriteLine("Warning: Total calories exceeds 300!"); 
                 } 
 
                 Console.WriteLine();
@@ -262,7 +262,7 @@ namespace RecipeApp
             recipe.DisplayRecipe();
         }
 
-        static void ClearData()
+        static void ClearData() 
         {
             recipes.Clear();        // Clears all the added recipe's in the application
             Console.WriteLine("All recipes has been cleared.");
