@@ -195,7 +195,7 @@ namespace RecipeApp
                 if (totalCalories > 300)
                 {
                     Console.WriteLine("Warning: Total calories exceeds 300!");
-                }
+                } 
 
                 Console.WriteLine();
                 Console.WriteLine("Recipe Options:");
