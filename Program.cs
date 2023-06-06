@@ -189,7 +189,7 @@ namespace RecipeApp
             {
                 Recipe recipe = recipes[recipeNumber - 1];
                 recipe.DisplayRecipe();
-                double totalCalories = recipe.CalculateTotalCalories();
+                double totalCalories = recipe.CalculateTotalCalories(); 
                 Console.WriteLine($"Total Calories: {totalCalories}");  //Total calory count of the ingredients/recipe. If the calory amount exceeds 300, the below message is shown
 
                 if (totalCalories > 300)
