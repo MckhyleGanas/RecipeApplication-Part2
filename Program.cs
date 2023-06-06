@@ -99,7 +99,7 @@ namespace RecipeApp
                 Console.WriteLine("Recipe App");
                 Console.WriteLine("1. Add Recipe");
                 Console.WriteLine("2. View Recipes");
-                Console.WriteLine("3. Clear All Data");
+                Console.WriteLine("3. Clear All Recipes");
                 Console.WriteLine("4. Exit");
                 Console.Write("Enter your choice: ");
                 string choice = Console.ReadLine();
@@ -137,12 +137,12 @@ namespace RecipeApp
 
             for (int i = 0; i < numIngredients; i++)
             {
-                Console.WriteLine($"Enter details for ingredient {i + 1}:"); //Enter the name/calories/food group/quantity of you ingredients
+                Console.WriteLine($"Enter details for ingredients {i + 1}:"); //Enter the name/calories/food group/quantity of you ingredients
                 Console.Write("Name: ");
                 string ingredientName = Console.ReadLine();
                 Console.Write("Quantity: ");        // Enter quantity of ingredients e.g 3 eggs, 2 cups of milk
                 double quantity = double.Parse(Console.ReadLine());
-                Console.Write("Unit: ");
+                Console.Write("Unit(mg,g,kg): ");
                 string unit = Console.ReadLine();
                 Console.Write("Calories: ");    //Calory count of recipe. Warning message is shown if calory intake is more than 300
                 int calories = int.Parse(Console.ReadLine());
