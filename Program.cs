@@ -6,13 +6,13 @@ namespace RecipeApp
     class Recipe
     {
         public string Name { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }       //Lists used in part 2
         public List<string> Steps { get; set; }
 
         public Recipe(string name)
         {
             Name = name;
-            Ingredients = new List<Ingredient>();
+            Ingredients = new List<Ingredient>();   //Lists used for ingredient class
             Steps = new List<string>();
         }
 
@@ -35,7 +35,7 @@ namespace RecipeApp
                 Console.WriteLine($"- {ingredient.Quantity} {ingredient.Unit} of {ingredient.Name}");
             }
             Console.WriteLine("Steps:");
-            for (int i = 0; i < Steps.Count; i++)
+            for (int i = 0; i < Steps.Count; i++)       //Each step incremented by 1 depending on how many steps user inputs
             {
                 Console.WriteLine($"{i + 1}. {Steps[i]}");
             }
@@ -127,26 +127,26 @@ namespace RecipeApp
 
         static void AddRecipe()
         {
-            Console.Write("Enter recipe name: ");
+            Console.Write("Enter recipe name: "); //Enter the name of your recipe
             string name = Console.ReadLine();
 
             Recipe recipe = new Recipe(name);
 
-            Console.Write("Enter the number of ingredients: ");
+            Console.Write("Enter the number of ingredients: "); //Enter the number of ingredients your recipe requires
             int numIngredients = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < numIngredients; i++)
             {
-                Console.WriteLine($"Enter details for ingredient {i + 1}:");
+                Console.WriteLine($"Enter details for ingredient {i + 1}:"); //Enter the name/calories/food group/quantity of you ingredients
                 Console.Write("Name: ");
                 string ingredientName = Console.ReadLine();
-                Console.Write("Quantity: ");
+                Console.Write("Quantity: ");        // Enter quantity of ingredients e.g 3 eggs, 2 cups of milk
                 double quantity = double.Parse(Console.ReadLine());
                 Console.Write("Unit: ");
                 string unit = Console.ReadLine();
-                Console.Write("Calories: ");
+                Console.Write("Calories: ");    //Calory count of recipe. Warning message is shown if calory intake is more than 300
                 int calories = int.Parse(Console.ReadLine());
-                Console.Write("Food Group: ");
+                Console.Write("Food Group: ");     //Ingredient food group e.g dairy
                 string foodGroup = Console.ReadLine();
 
                 Ingredient ingredient = new Ingredient(ingredientName, quantity, unit, calories, foodGroup);
@@ -154,7 +154,7 @@ namespace RecipeApp
             }
 
             Console.Write("Enter the number of steps: ");
-            int numSteps = int.Parse(Console.ReadLine());
+            int numSteps = int.Parse(Console.ReadLine());       //Recipe steps e.g Step 1:..., Step:2...
 
             for (int i = 0; i < numSteps; i++)
             {
@@ -171,18 +171,18 @@ namespace RecipeApp
         {
             if (recipes.Count == 0)
             {
-                Console.WriteLine("No recipes found.");
+                Console.WriteLine("No recipes found."); //If user input does not meet parameters, error message is shown
                 return;
             }
 
-            Console.WriteLine("Recipes:");
+            Console.WriteLine("Recipes:");  //Add recipe
             recipes.Sort((r1, r2) => string.Compare(r1.Name, r2.Name));
-            for (int i = 0; i < recipes.Count; i++)
+            for (int i = 0; i < recipes.Count; i++) 
             {
                 Console.WriteLine($"{i + 1}. {recipes[i].Name}");
             }
 
-            Console.Write("Enter the recipe number to view: ");
+            Console.Write("Enter the recipe number to view: ");  //View previously added recipes
             int recipeNumber = int.Parse(Console.ReadLine());
 
             if (recipeNumber > 0 && recipeNumber <= recipes.Count)
@@ -190,7 +190,7 @@ namespace RecipeApp
                 Recipe recipe = recipes[recipeNumber - 1];
                 recipe.DisplayRecipe();
                 double totalCalories = recipe.CalculateTotalCalories();
-                Console.WriteLine($"Total Calories: {totalCalories}");
+                Console.WriteLine($"Total Calories: {totalCalories}");  //Total calory count of the ingredients/recipe. If the calory amount exceeds 300, the below message is shown
 
                 if (totalCalories > 300)
                 {
@@ -206,8 +206,8 @@ namespace RecipeApp
                 string choice = Console.ReadLine();
 
                 switch (choice)
-                {
-                    case "1":
+                {                               // Enter a choice between scaling, resetting or returning to your recipe book
+                    case "1":                   // If invalid option entered, error message is shown
                         ScaleRecipe(recipe);
                         break;
                     case "2":
@@ -235,7 +235,7 @@ namespace RecipeApp
             Console.Write("Enter your choice: ");
             string choice = Console.ReadLine();
 
-            switch (choice)
+            switch (choice)         // User inpur desired scaling factor. If user inputs incorrect scaling measurment, error message is shown
             {
                 case "1":
                     recipe.ScaleRecipe(0.5);
@@ -257,14 +257,14 @@ namespace RecipeApp
 
         static void ResetQuantities(Recipe recipe)
         {
-            recipe.ResetQuantities();
+            recipe.ResetQuantities();       //Reset quatnties of recipe (scaling)
             Console.WriteLine("Quantities reset to its original values.");
             recipe.DisplayRecipe();
         }
 
         static void ClearData()
         {
-            recipes.Clear();
+            recipes.Clear();        // Clears all the added recipe's in the application
             Console.WriteLine("All recipes has been cleared.");
         }
     }
